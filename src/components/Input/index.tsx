@@ -2,22 +2,15 @@ import {
   useEffect,
   useRef,
   useState,
-  useCallback,
-  ReactNode,
+  useCallback
 } from 'react';
+
+
+import { InputProps } from '../../types';
 
 import { useField } from '@unform/core';
 
 import { Container } from './styles';
-
-interface InputProps {
-  name: string;
-  icon: ReactNode;
-  placeholder: string;
-  rest: {
-    [x:string]: any;
-  }
-}
 
 export function Input(props: InputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -47,14 +40,14 @@ export function Input(props: InputProps) {
 
   return (
     <Container isFilled={isFilled} isFocused={isFocused}>
-      {/* {icon && <Icon size={20} />} */}
 
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         defaultValue={defaultValue}
         ref={inputRef}
-        {...props.rest}
+        placeholder={props.placeholder}
+        name={fieldName}
       />
     </Container>
   );

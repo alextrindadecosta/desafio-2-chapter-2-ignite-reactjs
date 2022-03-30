@@ -30,6 +30,10 @@ export const Container = styled.div<ContainerProps>`
 
   section.body {
     padding: 30px;
+    min-height: 211px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 
     h2 {
       color: #3d3d4d;
